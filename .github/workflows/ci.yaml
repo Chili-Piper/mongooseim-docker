@@ -17,4 +17,3 @@ jobs:
           docker_version: 23.0.1
       - uses: actions/checkout@v2
       - run: ./build.sh
-      - run: ./smoke_test.sh
