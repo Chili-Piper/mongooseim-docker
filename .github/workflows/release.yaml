@@ -1,0 +1,25 @@
+name: Release
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+jobs:
+  release:
+    name: Release
+    runs-on: 'ubuntu-22.04'
+    steps:
+      - uses: docker-practice/actions-setup-docker@master
+        with:
+          docker_version: 23.0.1
+      - uses: actions/checkout@v2
+      - run: ./build.sh
+      - uses: google-github-actions/auth@v2
+        with:
+          credentials_json: '${{ secrets.GOOGLE_CREDENTIALS }}'
+      - uses: google-github-actions/setup-gcloud@v2
+      - run: gcloud auth configure-docker us-central1-docker.pkg.dev
+      - run: |
+          docker tag mongooseim us-central1-docker.pkg.dev/chilipiper-cloud/mongooseim-docker/mongooseim-docker:1.0.$GITHUB_RUN_NUMBER
+          docker push us-central1-docker.pkg.dev/chilipiper-cloud/mongooseim-docker/mongooseim-docker:1.0.$GITHUB_RUN_NUMBER

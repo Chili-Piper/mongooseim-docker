@@ -1,14 +1,12 @@
 name: ci
 
 on:
-  push:
-    branches: [ master ]
   pull_request:
-    branches: [ master ]
+    branches: [master]
   workflow_dispatch:
 
 jobs:
-  test:
+  build:
     name: Build
     runs-on: 'ubuntu-22.04'
     steps:
