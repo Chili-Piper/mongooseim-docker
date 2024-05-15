@@ -13,7 +13,7 @@ log () {
 
 build () {
     local name=${1:-MongooseIM}
-    local repo=${2:-https://github.com/esl/MongooseIM}
+    local repo=${2:-https://github.com/Chili-Piper/mongooseim}
     local commit=${3:-master}
     log do_build: $name $commit $repo | tee -a $LOGFILE
     local workdir=/tmp/mongooseim

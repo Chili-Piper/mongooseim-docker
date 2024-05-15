@@ -22,4 +22,4 @@ jobs:
       - run: gcloud auth configure-docker us-central1-docker.pkg.dev
       - run: |
           docker tag mongooseim us-central1-docker.pkg.dev/chilipiper-cloud/mongooseim-docker/mongooseim-docker:1.0.$GITHUB_RUN_NUMBER
-          docker push us-central1-docker.pkg.dev/chilipiper-cloud/mongooseim-docker/mongooseim-docker:1.0.$GITHUB_RUN_NUMBER
+          docker push us-central1-docker.pkg.dev/chilipiper-cloud/mongooseim-docker/mongooseim:1.0.$GITHUB_RUN_NUMBER
