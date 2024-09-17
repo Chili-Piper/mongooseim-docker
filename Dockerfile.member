@@ -1,4 +1,4 @@
-FROM phusion/baseimage:jammy-1.0.1
+FROM ubuntu:oracular
 
 VOLUME ["/member", "/var/lib/mongooseim"]
 
@@ -10,7 +10,7 @@ ENV PATH="${PATH}:/usr/lib/mongooseim/bin"
 RUN apt-get update && apt-get install -y \
         libssl3 \
         iproute2 \
-        netcat \
+        netcat-openbsd \
         inetutils-ping \
         telnet \
         unixodbc \
