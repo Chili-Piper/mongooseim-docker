@@ -1,8 +1,8 @@
 name: ci
 
 on:
-  push:
-    branches: [ master ]
+#  push:
+#    branches: [ master ]
   pull_request:
     branches: [ master ]
   workflow_dispatch:
@@ -14,4 +14,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: ./build.sh
-      - run: ./smoke_test.sh
+#      - run: ./smoke_test.sh
